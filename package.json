@@ -1,0 +1,16 @@
+{
+  "name": "inmet-proj4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "deploy": "serverless deploy -v"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.931.0",
+    "axios": "^0.21.1"
+  }
+}
