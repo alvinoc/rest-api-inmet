@@ -1,6 +1,6 @@
 
 
-service: inmet-proj4
+service: proj4
 
 
 frameworkVersion: '2'
@@ -14,25 +14,86 @@ provider:
       Action:
         - kinesis:PutRecord
         - kinesis:PutRecords
+        - s3:GetObject
       Resource:
         - Fn::GetAtt: [ kinesisStream, Arn ]
+        - "arn:aws:s3:::*"
 
 
 
 functions:
   callExternalAPI:
-    handler: callExternalAPI.handler
+    handler: src/functions/callExternalAPI.handler
     events:
       - http:
           path: /external
           method: get
+  getTempMax:
+    handler: src/functions/getTempMax.handler
+    environment:
+      bucket: inmet-proj4
+    events:
+      - http:
+          path: /tempmax
+          method: get
+      - s3:
+          bucket: inmet-proj4
+          event: s3:ObjectCreated:Post
+          existing: true
+  getPressAtm:
+    handler: src/functions/getPressAtm.handler
+    environment:
+      bucket: inmet-proj4
+    events:
+      - http:
+          path: /pressmax
+          method: get
+      - s3:
+          bucket: inmet-proj4
+          event: s3:ObjectCreated:Put
+          existing: true
+  getUmidade:
+    handler: src/functions/getUmidade.handler
+    environment:
+      bucket: inmet-proj4
+    events:
+      - http:
+          path: /umidmed
+          method: get
+      - s3:
+          bucket: inmet-proj4
+          event: s3:ObjectCreated:Copy
+          existing: true
+  getVelMed:
+    handler: src/functions/getVelMed.handler
+    environment:
+      bucket: inmet-proj4
+    events:
+      - http:
+          path: /velmed
+          method: get
+      - s3:
+          bucket: inmet-proj4
+          event: s3:ObjectCreated:CompleteMultipartUpload
+          existing: true
+  getTempMed:
+    handler: src/functions/getTempMed.handler
+    environment:
+      bucket: inmet-proj4
+    events:
+      - http:
+          path: /tempmed
+          method: get
+      - s3:
+          bucket: inmet-proj4
+          event: s3:ObjectRemoved:Delete
+          existing: true
 
 resources:
   Resources:
     kinesisStream:
       Type: AWS::Kinesis::Stream
       Properties:
-        Name: teste
+        Name: inmet-pe
         RetentionPeriodHours: 24
         ShardCount: 1
-

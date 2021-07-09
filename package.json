@@ -1,16 +1,24 @@
 {
-  "name": "inmet-proj4",
+  "name": "proj4",
   "version": "1.0.0",
   "description": "",
-  "main": "handler.js",
   "scripts": {
     "deploy": "serverless deploy -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvinoc/rest-api-inmet.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alvinoc/rest-api-inmet/issues"
+  },
+  "homepage": "https://github.com/alvinoc/rest-api-inmet#readme",
   "dependencies": {
-    "aws-sdk": "^2.931.0",
-    "axios": "^0.21.1"
+    "aws-sdk": "^2.937.0",
+    "axios": "^0.21.1",
+    "esm": "^3.2.25"
   }
 }
