@@ -8,17 +8,17 @@ I used postman for API testing.
 
 # Endpoints
 
-https://d4gy51x1yl.execute-api.us-east-1.amazonaws.com/dev/callExternalAPI
+https://d4gy51x1yl.execute-api.us-east-1.amazonaws.com/dev/external
 
-https://d4gy51x1yl.execute-api.us-east-1.amazonaws.com/dev/getTempMax
+https://d4gy51x1yl.execute-api.us-east-1.amazonaws.com/dev/tempMax
 
-https://d4gy51x1yl.execute-api.us-east-1.amazonaws.com/dev/getPressAtm
+https://d4gy51x1yl.execute-api.us-east-1.amazonaws.com/dev/pressmax
 
-https://d4gy51x1yl.execute-api.us-east-1.amazonaws.com/dev/getUmidade
+https://d4gy51x1yl.execute-api.us-east-1.amazonaws.com/dev/umidmed
 
-https://d4gy51x1yl.execute-api.us-east-1.amazonaws.com/dev/getVelMed
+https://d4gy51x1yl.execute-api.us-east-1.amazonaws.com/dev/velmed
 
-https://d4gy51x1yl.execute-api.us-east-1.amazonaws.com/dev/getTempMed
+https://d4gy51x1yl.execute-api.us-east-1.amazonaws.com/dev/tempmed
 
 ## The endpoints will probably expire due to the end of the credits from the course
 
